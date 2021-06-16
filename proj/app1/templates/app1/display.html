@@ -1,0 +1,155 @@
+{% extends 'app1/layout.html' %}
+
+
+
+{% block body %}
+
+<div>
+
+
+
+
+
+
+
+{% if f %}
+    {% if empty %}
+        <h2>No Flights available </h2>
+{% else %}
+<h2 class='center-align'>FLIGHTS:</h2>
+
+<div class='scroll'>
+<table class="responsive-table centered striped">
+
+    <thead>
+      
+      <tr>
+          {% for col in df1 %}
+        <th>{{col}}</th>
+        {% endfor %}
+
+      </tr>
+    </thead>
+
+    <tbody>
+        {% for k in values %}
+        <tr>
+        {% for y in k %}
+        <td>{{y}}</td>
+        {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endif %}
+{% endif %}
+
+
+
+{% if t %}
+
+    {% if empty %}
+        <h2>No Trains available </h2>
+{% else %}
+<h2 class='center-align'>TRAINS:</h2>
+<table class="responsive-table centered striped">
+
+    <thead>
+      
+        <tr>
+            {% for col in df1 %}
+          <th>{{col}}</th>
+          {% endfor %}
+  
+        </tr>
+      </thead>
+  
+      <tbody>
+          {% for k in values %}
+          <tr>
+          {% for y in k %}
+          <td>{{y}}</td>
+          {% endfor %}
+          </tr>
+          {% endfor %}
+      </tbody>
+</table>
+
+{% endif %}
+{% endif %}
+
+
+{% if ft %}
+
+
+
+<h2 class='center-align'>FLIGHTS:</h2>
+{% if empty1 %}
+<h2 class='center-align'>No Flights available</h2>
+{% else %}
+<table class="responsive-table centered striped">
+
+    <thead>
+      
+        <tr>
+            {% for col in df1 %}
+          <th>{{col}}</th>
+          {% endfor %}
+  
+        </tr>
+      </thead>
+  
+      <tbody>
+          {% for k in values1 %}
+          <tr>
+          {% for y in k %}
+          <td>{{y}}</td>
+          {% endfor %}
+          </tr>
+          {% endfor %}
+      </tbody>
+</table>
+{% endif %}
+
+
+
+
+<h2 class='center-align'>TRAINS:</h2>
+{% if empty2 %}
+<h2 class='center-align'>No Trains available</h2>
+
+{% else %}
+
+<table class="responsive-table centered striped">
+
+    <thead>
+      
+        <tr>
+            {% for col in df2 %}
+          <th>{{col}}</th>
+          {% endfor %}
+  
+        </tr>
+      </thead>
+  
+      <tbody>
+          {% for k in values2 %}
+          <tr>
+          {% for y in k %}
+          <td>{{y}}</td>
+          {% endfor %}
+          </tr>
+          {% endfor %}
+      </tbody>
+</table>
+{% endif %}
+
+
+
+{% endif %}
+
+</div>
+
+{% endblock %}

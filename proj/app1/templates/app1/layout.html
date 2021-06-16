@@ -1,0 +1,375 @@
+{% load static %}
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    
+         <!-- Compiled and minified CSS -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <link rel="preconnect" href="https://fonts.gstatic.com">
+         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+   <style>
+
+
+
+
+      html,
+body {
+  height: 100%;
+  font-family: Montserrat;
+  
+  
+}
+
+
+
+    .main{
+      height: 100%;
+  position: relative;
+      
+    }   
+
+    .container{
+      /* margin: 0; */
+      position:relative;
+      width: 100%;
+      height:100%;
+      padding-top: 10%;
+      /* top:50%;
+      left:50%;
+      -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    
+    
+    }
+    form{
+      color:white;
+    }
+
+    .form{
+      position: absolute;
+      text-align: center;
+      
+      height:fit-content;
+      /* width: fit-content; */
+      /* top: 50%; */
+      background-color:antiquewhite;
+      box-shadow: 10px 10px
+    } 
+
+    .datepicker{
+      color:white
+    }
+
+    .imgcontainer{
+      width: 100%;
+      text-align: center;
+    }
+    .centerimg{
+      width: 100%;
+      height: auto;
+      object-fit:cover;
+     
+    }
+
+    .bgimg{
+      position: fixed;
+      width: 100%; 
+      /* width:auto; */
+      
+      min-height: 100%;
+  /* min-width: 1024px; */
+    
+      
+      /* background-color:rgb(206, 122, 122); */
+      /* opacity: 10%; */
+      
+    }
+
+    /* .bgimg::after{
+      background-color:black;
+    } */
+    .overlay{
+      position:absolute;
+      width: 100%;
+      height:100%;
+      /* background-color:rgb(27, 27, 27); */
+      /* opacity:50%; */
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      
+      /* background-size: contain; */
+
+    }
+   
+    #bg{
+      
+      width:100%;
+      /* height:100%; */
+      /* width:auto;
+      height:auto; */
+      position: relative;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size:contain;
+      /* display:none; */
+      
+      /* object-fit:contain; */
+
+    }
+
+    .opac{
+      width:100%;
+      height:100%;
+      position:relative;
+      /* background-color: rgb(150, 48, 48); */
+      background-image: radial-gradient(rgb(58, 58, 58),rgb(0, 0, 0,1));
+      opacity:50%;
+    }
+
+    .slide{
+      position:absolute;
+      width: 100%;
+      height:100%;
+      /* transition: display 0.3s ease-in-out; */
+      display:none;
+      animation: 12s autoplay1 infinite;
+      
+      
+    }
+
+    .slide:nth-child(1){
+      display: flex;
+    }
+
+    .card{
+      background-color:rgb(49, 49, 49);
+      /* top:50%; */
+      /* transform:translateY(-50%); */
+      opacity:0.9;
+      border-radius: 30px;
+    }
+
+    .input{
+      color:white;
+    }
+    .navbar-fixed{
+      position:absolute;
+    }
+    .nav-wrapper{
+      background-color: #74EBD5;
+background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
+    }
+
+h2{
+  background-color: rgb(49, 49, 49);
+  opacity: 0.75;
+  padding-left: 10px;
+  padding-right: 10px;
+  color:white;
+  border-radius: 30px;
+  width: max-content;
+  /* position:fixed; */
+}
+
+    table{
+      background-color:rgb(49, 49, 49);
+      color:aliceblue;
+     
+      /* padding-left:50px; */
+      /* top:50%; */
+      /* transform:translateY(-50%); */
+      opacity:0.9;
+      border-radius: 30px;
+    }
+
+    /* tbody{
+      
+      max-height: 120px;
+      overflow-y: auto;
+    }
+
+    thead, tbody { 
+      display: block;
+      width:100%
+     }
+
+     th, tr{
+       width:15px
+     } */
+
+     .scroll{
+       position: relative;
+     }
+
+/* tbody {
+  display: block;
+  max-height: fit-content;
+    height: 250px;       /* Just for the demo          */
+    /* overflow-y: auto;    Trigger vertical scroll    */
+    /* overflow-x: hidden;  Hide the horizontal scroll */
+/* }  */
+  </style>
+    
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+       
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+      let v=0
+      function swap(){
+        let orig=document.getElementById('origin');
+        let dest=document.getElementById('destination');
+        let temp=orig.value;
+        orig.value=dest.value;
+        dest.value=temp;
+      }
+    </script>
+
+
+
+    <title>Find your Trip</title>
+</head>
+  <body> 
+  
+
+    <div class='main'>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo center" style='font-family: Montserrat;'>FIND YOUR TRIP</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="sass.html">Logout</a></li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class='bgimg' id='containimg'>
+      
+    
+      <div class='overlay'>
+
+        <div class='slide'>
+          <img src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80" id='bg'>
+        </div>
+        
+        <div class='slide'>
+          <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80" id='bg'>
+        </div>
+
+        <div class='slide'>
+          <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=708&q=80" id='bg'>
+        </div>
+
+        <div class='slide'>
+          <img src="https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=667&q=80" id='bg'>
+        </div>
+
+        <div class='slide'>
+          <img src="https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80" id='bg'>
+        </div>
+
+        <div class='slide'>
+          <img src="https://images.unsplash.com/photo-1476673160081-cf065607f449?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=752&q=80" id='bg'>
+        </div>
+
+        <div class='slide'>
+          <img src="https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" id='bg'>
+        </div>
+
+
+
+
+    </div>
+  
+    <div class='overlay'><div class='opac'></div></div>
+  
+  </div>
+    
+    
+    <div class='container'>
+      
+        {% block body %}
+        {% endblock %}
+
+        </div>
+      </div>
+
+    </div>
+   
+    
+  </div>
+  
+  <script>
+      $(function () {
+    $("#id_date").datetimepicker({
+      format: 'd/m/Y H:i',
+    });
+  });
+  </script>
+
+
+
+  <script>
+
+    function handleSubmit(){
+
+      if (document.getElementById('flights').checked|document.getElementById('trains').checked){
+        document.getElementById('submit').disabled=false
+        if(document.getElementById('flights').checked){
+          if (document.getElementById('trains').checked){
+            document.getElementById('flights').value='ft'
+            document.getElementById('trains').value='ft'
+          }
+          else{
+            document.getElementById('flights').value='f'
+          }
+        }
+        else{
+          document.getElementById('trains').value='t'
+        }
+      }
+      else{
+        document.getElementById('submit').disabled=true
+      }
+    }
+ 
+
+ 
+
+
+      let currslide=0;
+      
+      function moveslide(){
+        const slides= document.querySelectorAll('.slide');
+        currslide=currslide+1
+        if(currslide===slides.length){
+          currslide=0
+        }
+     
+        slides.forEach(slide=>slide.style.display='none')
+
+        slides[currslide].style.display='flex';
+        // slides[currslide].style.transition='display 0.5s ease-in-out'
+      }
+
+      setInterval(moveslide,10000)
+
+  </script>
+  
+  
+  </body>
+</html>
+

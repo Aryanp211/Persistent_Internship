@@ -1,0 +1,90 @@
+{% extends 'app1/layout.html' %}
+
+
+
+{% block body %}
+      
+        <div class="row">
+        <div class='col s12 m6 push-m3'>
+          <div class="card">
+            <div class="card-content white-text">
+              <span class="card-title"><h6 class="center-align">ENTER DETAILS</h6></span>
+
+              <form id='form' action='{% url "app1:result" %}' method='POST'>
+                  {% csrf_token %}
+              
+                <div class='row'>
+
+                    <div class='input-field col s12 m6' >
+                        <i class="material-icons prefix">my_location</i>
+                        <input type="text" id='origin' name='origin' class='input' required>
+                        <label for='origin'>ORIGIN</label>
+                        <!-- {{form.origin}} -->
+                    </div>
+
+                    <!-- <div class='input-field col s12 m2' style="text-align: center">
+                        <button class="waves-effect waves-teal btn-flat" style="color:white" onclick="swap()"><i class="material-icons">sync_alt</i><button>
+                    </div> -->
+                      
+                    <div class='input-field col s12 m6' >
+                        <i class="material-icons prefix">place</i>
+                        <input type="text" id='destination' name='destination' class='input' required>
+                        <label for='destination'>DESTINATION</label>
+                        <!-- {{form.destination}} -->
+                    </div>
+
+                    <div class='input-field col s12 m6'>
+                        <input type="date" id='from' name='from_date' class='input' required>
+                        <label for='from' class='active'>FROM</label>
+                        <!-- {{form.from_date}} -->
+                    </div>
+
+                    <div class='input-field col s12 m6'>
+                        <input type="date" id='to' name='to_date' class='input' required>
+                        <label for='to'  class='active'>TO</label>
+                        <!-- {{form.to_date}} -->
+                    </div>
+
+                    <div class='input-field col s12 m6 push-m3'>
+                        <i class="material-icons prefix">savings</i>
+                        <input type="number" id="budget" name='budget' class='input' required>
+                        <label for="budget">BUDGET</label>
+                        <!-- {{form.budget}} -->
+                    </div>
+
+                    <div class='input-field col s12'>
+                      <!-- <i class="material-icons prefix">savings</i> -->
+                      <!-- <input type="text" id="icon_prefix" class='input'>
+                      <label for="">TRANSPORT</label> -->
+                      
+                      <div style='text-align: center;'>
+                        <label style='padding:25px'>
+                          <input type="checkbox" name='transport' id='flights' onclick='handleSubmit()' />
+                        <span>Flights</span>
+                        </label>
+
+                      <label style='padding:25px'>
+                        <input type="checkbox" name='transport' id='trains' onclick='handleSubmit()' />
+                        <span>Trains</span>
+                      </label></div>
+
+                      <!-- {{form.transport}} -->
+                  </div>
+                <!-- <input type="submit"> -->
+              </div>
+              
+              
+            
+            <div class="card-action center" style="border-bottom-right-radius: 30px; border-bottom-left-radius: 30px;">
+              <button type='submit'  id='submit' class="waves-effect waves-teal btn-flat" style="color: rgb(211, 180, 4);" disabled >SEARCH</button>
+            </form>
+            </div>
+            </div>
+          </div>
+        </div>
+
+{% endblock %}
+
+
+ 
+
