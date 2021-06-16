@@ -103,14 +103,22 @@ def train_call(destCity,destStn,srcCity,srcStn,trDate):
         print(
             '-----------------------------------------------------------------------------------------------------------------------------------')
         # a_name_pric = soupBody.findAll('div', class_='ticket-price justify-flex-end')
-        a_name_pricee = []
+        a_name_pricee1 = []
+        a_name_pricee=[]
         for x in a_name_class:
-            TrainCost=list(x.find('div', class_='ticket-price justify-flex-end').text)[2:]
-            TrainCostStr=''.join(map(str,TrainCost))
-            TrainCostFinal=int(TrainCostStr)
-            a_name_pricee.append(TrainCostFinal)
-                
-
+            a=(x.find('div', class_='ticket-price justify-flex-end'))
+            if(a is not None):
+                a_name_pricee.append((int((a.text)[2:])))
+            if(a is None):
+                a_name_pricee.append(None)
+            # TrainCost=list(x.find('div', class_='ticket-price justify-flex-end').text)
+            # print(TrainCost)
+            # TrainCostStr=''.join(map(str,TrainCost))
+            # a_name_pricee=int(a_name_pricee1)
+            
+            
+            
+        
         print(a_name_pricee)
         print(len(a_name_pricee))
         print(
@@ -124,6 +132,7 @@ def train_call(destCity,destStn,srcCity,srcStn,trDate):
              'Cost': a_name_pricee
              })
         # print(len(pArrivalCity))
+        Train_Details = Train_Details.dropna()
         print(Train_Details)
         return Train_Details
 
